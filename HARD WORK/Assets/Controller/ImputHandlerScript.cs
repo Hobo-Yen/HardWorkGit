@@ -33,4 +33,5 @@ public class ImputHandlerScript : MonoBehaviour
     public float GetInteraction() => allImputs.PlayerActionMap.Interaction.ReadValue<float>();
     public float GetLMB() => allImputs.PlayerActionMap.LMB.ReadValue<float>();
     public float GetRMB() => allImputs.PlayerActionMap.RMB.ReadValue<float>();
+    public float GetSpace() => allImputs.PlayerActionMap.Space.ReadValue<float>();
 }

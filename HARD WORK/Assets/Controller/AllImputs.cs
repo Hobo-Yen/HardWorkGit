@@ -71,6 +71,15 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Space"",
+                    ""type"": ""Value"",
+                    ""id"": ""1c169472-bf33-4f07-9448-cdf00f75a0d7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -216,6 +225,17 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
                     ""action"": ""RMB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7620e34-afe9-4531-a80e-df308a1952bf"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +249,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Interaction = m_PlayerActionMap.FindAction("Interaction", throwIfNotFound: true);
         m_PlayerActionMap_LMB = m_PlayerActionMap.FindAction("LMB", throwIfNotFound: true);
         m_PlayerActionMap_RMB = m_PlayerActionMap.FindAction("RMB", throwIfNotFound: true);
+        m_PlayerActionMap_Space = m_PlayerActionMap.FindAction("Space", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Interaction;
     private readonly InputAction m_PlayerActionMap_LMB;
     private readonly InputAction m_PlayerActionMap_RMB;
+    private readonly InputAction m_PlayerActionMap_Space;
     public struct PlayerActionMapActions
     {
         private @AllImputs m_Wrapper;
@@ -304,6 +326,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         public InputAction @Interaction => m_Wrapper.m_PlayerActionMap_Interaction;
         public InputAction @LMB => m_Wrapper.m_PlayerActionMap_LMB;
         public InputAction @RMB => m_Wrapper.m_PlayerActionMap_RMB;
+        public InputAction @Space => m_Wrapper.m_PlayerActionMap_Space;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -328,6 +351,9 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
             @RMB.started += instance.OnRMB;
             @RMB.performed += instance.OnRMB;
             @RMB.canceled += instance.OnRMB;
+            @Space.started += instance.OnSpace;
+            @Space.performed += instance.OnSpace;
+            @Space.canceled += instance.OnSpace;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -347,6 +373,9 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
             @RMB.started -= instance.OnRMB;
             @RMB.performed -= instance.OnRMB;
             @RMB.canceled -= instance.OnRMB;
+            @Space.started -= instance.OnSpace;
+            @Space.performed -= instance.OnSpace;
+            @Space.canceled -= instance.OnSpace;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -371,5 +400,6 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         void OnInteraction(InputAction.CallbackContext context);
         void OnLMB(InputAction.CallbackContext context);
         void OnRMB(InputAction.CallbackContext context);
+        void OnSpace(InputAction.CallbackContext context);
     }
 }

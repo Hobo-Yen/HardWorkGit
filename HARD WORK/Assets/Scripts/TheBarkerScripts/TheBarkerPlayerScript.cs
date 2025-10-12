@@ -14,16 +14,6 @@ public class TheBarkerPlayerScript : MonoBehaviour
         buttonsHold = true;
     }
 
-    private void Update()
-    {
-
-
-       
-
-
-
-    }
-
     private void OnTriggerStay2D(Collider2D over)
     {
         if (over.tag == "PointsObject") 

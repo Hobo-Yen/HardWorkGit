@@ -9,17 +9,9 @@ public class DeliverymanMovement : MonoBehaviour
     [SerializeField] private float playerSpeed;
     [SerializeField] private float horizontalMax = 7.5f;
     [SerializeField] private float verticalMax = 4.5f;
-
-    private CharacterController characterController;
-
     private Rigidbody2D playerRb; 
-
     private ImputHandlerScript imputHandler;
-
     GameObject player;
-
-
-
     bool afterMove = true;
 
     private void Start()
