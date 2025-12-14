@@ -2,13 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   - PointsObject
   - UsefulObject
   - SupplyObject
   - Spawner
+  - ExtractPoint
+  - ExpendableObject
   layers:
   - Default
   - TransparentFX
@@ -52,3 +54,5 @@ TagManager:
   - name: FrontLayer
     uniqueID: 3596682397
     locked: 0
+  m_RenderingLayers:
+  - Default

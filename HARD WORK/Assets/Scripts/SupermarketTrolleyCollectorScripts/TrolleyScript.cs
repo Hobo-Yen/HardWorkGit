@@ -13,8 +13,7 @@ public class TrolleyScript : MonoBehaviour
     {
         if (collision.tag == "UsefulObject")
         {
-            Debug.Log("1");
-            joint2D.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
+            joint2D.connectedBody = collision.gameObject.GetComponentInParent<Rigidbody2D>();
         }
     }
 }
