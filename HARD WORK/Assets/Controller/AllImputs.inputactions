@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "AllImputs",
     "maps": [
         {
@@ -27,7 +28,7 @@
                     "name": "Interaction",
                     "type": "Value",
                     "id": "033fc817-d740-4f59-bdb6-1a62597c2c80",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -39,6 +40,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LMBButton",
+                    "type": "Button",
+                    "id": "58ba39ac-fd38-4f1a-ae26-edcf3b0cb889",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
                     "initialStateCheck": true
                 },
                 {
@@ -190,6 +200,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LMB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c578cff0-7841-4ba9-aeb8-16cfe6ff7664",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LMBButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

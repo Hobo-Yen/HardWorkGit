@@ -23,12 +23,10 @@ public class AppleFarmStickerScript : MonoBehaviour
         else if (other.tag == "Enemy" && InsideColl(gameObject.GetComponent<Collider2D>(), other))
         {
             sprite.color= Color.green;
-            if (ImputHandlerScript.Instance.GetLMB() != 0)
-            {
-                Destroy(other.gameObject);
-                gameObject.GetComponent<Collider2D>().enabled = false;
-                canBePickedUp = false;
-            }            
+            Destroy(other.gameObject);
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            canBePickedUp = false;
+                       
         }       
     }
     bool InsideColl(Collider2D mycoll, Collider2D other)

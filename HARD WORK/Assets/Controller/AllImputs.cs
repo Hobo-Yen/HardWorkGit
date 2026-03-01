@@ -114,7 +114,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
                     ""name"": ""Interaction"",
                     ""type"": ""Value"",
                     ""id"": ""033fc817-d740-4f59-bdb6-1a62597c2c80"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -126,6 +126,15 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LMBButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""58ba39ac-fd38-4f1a-ae26-edcf3b0cb889"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -282,6 +291,17 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c578cff0-7841-4ba9-aeb8-16cfe6ff7664"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LMBButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""810da0e0-f2a8-4ab4-92f8-9344fec5b058"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -313,6 +333,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Mouse = m_PlayerActionMap.FindAction("Mouse", throwIfNotFound: true);
         m_PlayerActionMap_Interaction = m_PlayerActionMap.FindAction("Interaction", throwIfNotFound: true);
         m_PlayerActionMap_LMB = m_PlayerActionMap.FindAction("LMB", throwIfNotFound: true);
+        m_PlayerActionMap_LMBButton = m_PlayerActionMap.FindAction("LMBButton", throwIfNotFound: true);
         m_PlayerActionMap_RMB = m_PlayerActionMap.FindAction("RMB", throwIfNotFound: true);
         m_PlayerActionMap_Space = m_PlayerActionMap.FindAction("Space", throwIfNotFound: true);
     }
@@ -399,6 +420,7 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Mouse;
     private readonly InputAction m_PlayerActionMap_Interaction;
     private readonly InputAction m_PlayerActionMap_LMB;
+    private readonly InputAction m_PlayerActionMap_LMBButton;
     private readonly InputAction m_PlayerActionMap_RMB;
     private readonly InputAction m_PlayerActionMap_Space;
     /// <summary>
@@ -428,6 +450,10 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerActionMap/LMB".
         /// </summary>
         public InputAction @LMB => m_Wrapper.m_PlayerActionMap_LMB;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionMap/LMBButton".
+        /// </summary>
+        public InputAction @LMBButton => m_Wrapper.m_PlayerActionMap_LMBButton;
         /// <summary>
         /// Provides access to the underlying input action "PlayerActionMap/RMB".
         /// </summary>
@@ -474,6 +500,9 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
             @LMB.started += instance.OnLMB;
             @LMB.performed += instance.OnLMB;
             @LMB.canceled += instance.OnLMB;
+            @LMBButton.started += instance.OnLMBButton;
+            @LMBButton.performed += instance.OnLMBButton;
+            @LMBButton.canceled += instance.OnLMBButton;
             @RMB.started += instance.OnRMB;
             @RMB.performed += instance.OnRMB;
             @RMB.canceled += instance.OnRMB;
@@ -503,6 +532,9 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
             @LMB.started -= instance.OnLMB;
             @LMB.performed -= instance.OnLMB;
             @LMB.canceled -= instance.OnLMB;
+            @LMBButton.started -= instance.OnLMBButton;
+            @LMBButton.performed -= instance.OnLMBButton;
+            @LMBButton.canceled -= instance.OnLMBButton;
             @RMB.started -= instance.OnRMB;
             @RMB.performed -= instance.OnRMB;
             @RMB.canceled -= instance.OnRMB;
@@ -577,6 +609,13 @@ public partial class @AllImputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLMB(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LMBButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLMBButton(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "RMB" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

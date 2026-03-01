@@ -15,9 +15,6 @@ public class AppleFarmPlayerScript : MonoBehaviour
     private GameObject apple;
     private float paintingProgress;
     private SpriteRenderer appleMask;
-    private AppleFarmStickerScript appleFarmStickerScript; 
-
-
     [SerializeField] private UnityEvent spawnWormHoles;
     [SerializeField] private UnityEvent applePainting;
     [SerializeField] private UnityEvent applyingSticker;
